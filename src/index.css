@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-violet: #4c2fb5;
+  --color-violet-dark: #3a2392;
+  --color-sun: #ffd23f;
+  --color-lilac: #f4f1ff;
+  --color-ink: #1a1238;
+  --color-muted: #54507a;
+  --color-wa: #0e7a41;
+  --color-wa-dark: #0a6435;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-violet);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-sun);
+  }
+}
+
+/* Une seule entrée animée : le téléphone du début de page */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(1.75rem); }
+  to   { opacity: 1; transform: none; }
+}
+.rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* Flèche des questions : tourne à l'ouverture (réponse à une action) */
+details[open] summary .chevron { transform: rotate(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}
