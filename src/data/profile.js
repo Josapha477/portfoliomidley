@@ -14,7 +14,7 @@ export const profile = {
   delivery: "1 à 2 semaines",
   // Photo : mettez votre fichier dans /public (ex. /midley.jpg) puis écrivez "/midley.jpg".
   // Tant que c'est vide, le site affiche vos initiales.
-  photo: "",
+  photo: "midley.png",
 };
 
 export const navLinks = [
